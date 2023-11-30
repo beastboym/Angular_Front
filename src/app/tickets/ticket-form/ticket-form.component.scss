@@ -1,7 +1,9 @@
-@import '../../../styles/card.scss';
+@import "../../../styles/card.scss";
 
 button {
-  background-color: transparent;
+  background-color: red;
+  color: white;
   border: none;
-  font-size: 1em;
+  padding: 0.2em 0.5em; /* Ajustez le padding selon vos besoins */
+  margin-right: 0.5em; /* Ajustez la marge droite pour l'espacement */
 }

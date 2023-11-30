@@ -1,18 +1,22 @@
-import { Ticket } from '../models/ticket';
-
+import { Ticket } from "../models/ticket";
+import { STUDENTS_MOCK } from "../mocks/student.mock";
 const dateToday: Date = new Date();
 
 export const TICKETS_MOCKED: Ticket[] = [
   {
-    title: 'SI4 in Madrid',
-    description: '',
+    title: "Madrid",
+    description: "",
     date: dateToday,
-    author: 'Paul'
+    student: STUDENTS_MOCK[2],
+    major: "Informatique",
+    isArchived: false,
   },
   {
-    title: 'SI5 in Paris',
-    description: 'Description du voyage',
+    title: "Paris",
+    description: "Description du voyage",
     date: dateToday,
-    author: 'Anakin'
+    student: STUDENTS_MOCK[1],
+    major: "Litterature",
+    isArchived: false,
   },
 ];

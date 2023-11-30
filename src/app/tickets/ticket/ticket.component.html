@@ -1,6 +1,41 @@
-<div class="card ticket" (click)="selectTicket()">
+<div
+  class="card ticket"
+  [class.change]="ticket.isArchived"
+  (click)="selectTicket()"
+>
   <!-- we use the {{ }} syntax to display the data, more info: https://angular.io/guide/displaying-data-->
-  <h3>{{ticket.title}}</h3>
-  <i class="fas fa-calendar-alt"></i> {{ticket.date | date: 'shortTime'}} &nbsp;&nbsp;
-  <i class="far fa-user"></i> {{ticket.author}}
+  <button
+    class="archived"
+    *ngIf="!ticket.isArchived"
+    (click)="archivedTicket()"
+  >
+    X
+  </button>
+  <h3>Ville: {{ ticket.title }}</h3>
+
+  <ng-container *ngIf="ticket.date">
+    <i class="fas fa-calendar-alt"></i>
+    {{ ticket.date | date : "shortTime" }} &nbsp;&nbsp;
+  </ng-container>
+
+  <ng-container *ngIf="ticket.student">
+    <i class="far fa-user"></i>
+    {{
+      ticket.student.id +
+        " - " +
+        ticket.student.surname +
+        " " +
+        ticket.student.name
+    }}&nbsp;&nbsp;
+  </ng-container>
+
+  <ng-container *ngIf="ticket.major">
+    <ng-container [ngSwitch]="ticket.major">
+      <i *ngSwitchCase="'Informatique'" class="fas fa-terminal"></i>
+      <i *ngSwitchCase="'Litterature'" class="fas fa-book"></i>
+      <!-- Ajoutez autant de cas que nécessaire avec les icônes appropriées -->
+      <i *ngSwitchDefault class="fas fa-question"></i>
+    </ng-container>
+    {{ ticket.major }}
+  </ng-container>
 </div>

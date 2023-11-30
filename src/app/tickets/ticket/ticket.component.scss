@@ -1,9 +1,18 @@
-@import '../../../styles/card.scss';
+@import "../../../styles/card.scss";
 
 .ticket {
   width: 100%;
+  background-color: transparent;
 }
 
 .ticket:hover {
   cursor: pointer;
+}
+
+.archived {
+  background-color: red;
+}
+
+.card.ticket.change {
+  border: 1px solid red;
 }
